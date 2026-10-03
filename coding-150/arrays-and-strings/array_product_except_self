@@ -1,0 +1,74 @@
+238. Product of Array Except Self
+
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,4]
+Output: [24,12,8,6]
+Example 2:
+
+Input: nums = [-1,1,0,-3,3]
+Output: [0,0,9,0,0]
+ 
+
+Constraints:
+
+2 <= nums.length <= 105
+-30 <= nums[i] <= 30
+The input is generated such that answer[i] is guaranteed to fit in a 32-bit integer.
+ 
+
+ 
+Topics
+Array
+Prefix Sum
+
+
+Solution:
+
+the solution is to first calculate the product of all the elements in the array 
+and then divide the product by each element to get the product of all elements except self.
+so the edge cases are only one zero we can append zeros but except zero value 
+we can append the product of all non zero values and 
+if there are more than one zero we can append all zeros to the result array.
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int arrSum = 1;
+        int countZero=0;
+        for(int num : nums){
+            if(num!=0){
+                arrSum*=num;
+            }
+            if(num==0){
+                countZero+=1;
+            }
+        }
+        int[] res= new int[nums.length];
+        if(countZero==0){
+             for(int i=0;i<nums.length;i++){
+                res[i]=arrSum/nums[i];
+            }
+        }else if(countZero==1){
+             for(int i=0;i<nums.length;i++){
+                if(nums[i]==0){
+                    res[i]=arrSum;
+                }else{
+                    res[i]=0;
+                }
+            }
+        }else{
+            for(int i=0;i<nums.length;i++){
+                res[i]=0;
+            }
+        }
+        return res;
+    }
+}

@@ -1,0 +1,15 @@
+api gateway is one entry point for all the microservices and it manages some basic operations like based on the endpoint it redirects to the respective service
+
+it validates the auth tokens and the jwt when hit with out letting to the underlying microservice it sends 401 
+
+it limits the requests and manages the requests with out making the internal microservice failing 
+
+it also help to logs metrics as well as logs of all the services
+
+when ever a request hits the api gateway 
+it reaches entry leel and then filter chain pipeline, here we check the authentication of the request
+
+then it also has redis integration where for read heavy operatons it directly retuns data from cache
+
+then the next layer service registry here it routes to the healty instance of the microservice pods which are running instead of hardcoded ip address. it might haveintegrated with service registry like kubernetes dns where they dynamically look up the healthy instances
+

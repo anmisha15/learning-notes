@@ -1,0 +1,14 @@
+arrays is a data structure where we store the information of the same data type in the contiguooug memery locations
+
+array length can be fixed or dynamic
+
+array operations:
+creation and adding data will take o(n) where ni is the size of the array
+accesing an element based on index will take o(1)
+updating will also only take o(1) if the index is given
+looping over the array will require and searching will take o(n)
+
+Java supprots two kinds of arrays one is statiC and the other is the dynamic 
+
+String:
+string is nothing but array of characters and behaves just like an array

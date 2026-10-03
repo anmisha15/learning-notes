@@ -1,0 +1,61 @@
+A class is kind of template or blue print of the actual object.
+A user can add attributes . attributes are nothing but the properties of a class.
+lets say A car the car related varibale information to get the car information 
+like color, model, year, price etc. these are the attributes of a class.
+and the class also has methods which are the functions of a class. 
+lets say a car has methods like start, stop, accelerate, brake etc. 
+these are the methods of a class.
+
+An object is the instance of the class. 
+the oject will have specific properties and methods and 
+it is unique for evry object
+
+we can create as many objects and each object has the same properties and methods
+ but the values of the properties can be different for each object.
+
+ An object os the actual unique car which has the specific color, model, year, 
+ price etc. and it can start, stop, accelerate, brake etc.
+ same it has diff methods too.
+
+ attributes are the propeties of the class and 
+ methods are the functions of the class.
+
+we represent these classes in the UML diagram.
+
+the class is represented in the UML diagram with a rectangle which has three parts
+1. the first part is the name of the class
+2. the second part is the attributes of the class
+3. the third part is the methods of the class    
+
++ means public
+- means private
+# means protected
+
+
+class Car {
+    //Attributes
+    private String brand;
+    private int year;
+
+    // Constructor is a function which calls by default just when the object is created
+    //So if we want to give some default values to the attributes of the class we can do it in the constructor
+    public Car(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
+    }
+
+    // Methods
+    public void displayDetails() {
+        System.out.println("Car: " + this.brand + ", Year: " + this.year);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Toyota", 2022);
+        Car car2 = new Car("Honda", 2025);
+        car1.displayDetails();
+        car2.displayDetails();
+    }
+}
+

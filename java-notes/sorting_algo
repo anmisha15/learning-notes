@@ -1,0 +1,42 @@
+Sorting Algorithm Best Case TimeAverage Case TimeWorst Case TimeSpace ComplexityStability
+Bubble Sort
+Selection Sort
+Insertion Sort
+Merge Sort
+Quick Sort
+Heap Sort
+Counting Sort
+Radix Sort
+Bucket Sort
+
+ these sorting solutions are of two types they are 
+ comparison algorithms : if the comparsion between the elements happens sequentially side by side, then it is called the sorting algorithm
+ non comparison algorithms
+
+ bubble sort
+ the adjacent items are compared and we move things if they are in worng order
+ and we will continue until the the array is sorted
+
+
+ comparison algorithms are of five types
+ divide and conquer:  
+ this sorting could be diving the array and using resursion to sort small parts and combine them
+
+ its mopre of breaking down big things and then sort and combine them back
+
+ the popular kind of divide and conquer sort of algorithms are
+ merge sort: merge sort is about dividing hte array to half recusrively until the single exists and then compare and then sort after checking the first elements and sorting each and merging them into the array by comparing one after the other
+
+ how we start do it
+
+ it follows a sorting process that uses booth the divide and conquer and the two pointer approach
+
+ and the first we divide the array into half until the the array cannot be divided furthur recursively until there is one element
+
+ conquer then we compare first two elements and try to build arrays recursively in the form of increasing arrays so when we combining we use two pointer approach and then we point one at the first array and the one of the second array and we compare and add while comparing and move eht epointers move accordingly
+
+
+
+ Quick sort:
+
+ 

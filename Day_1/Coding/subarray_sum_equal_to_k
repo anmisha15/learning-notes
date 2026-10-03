@@ -1,0 +1,17 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+         Map<Integer,Integer> prefixSum = new HashMap();
+        prefixSum.put(0,1);
+
+        int a=0,s=0;
+        for(int i=0;i<nums.length;i++){
+            s+=nums[i];
+            if(prefixSum.containsKey(s-k)){
+                a+=prefixSum.get(s-k);
+            }
+            prefixSum.put(s,prefixSum.getOrDefault(s,0)+1);
+        }
+
+        return a;
+    }
+}
