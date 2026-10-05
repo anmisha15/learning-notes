@@ -1,0 +1,71 @@
+there will be 4 types of relationships
+1. depency relationships:
+it will be represented by a dashed arrow in the uml and this relationship forms when the object of one class passed a parameter to other class in the object creation of b class is depended on it
+
+
+code:
+
+Class A{
+    public string getString(){
+        return "A";
+    }
+}
+
+Class B{
+    public void printString(A a){
+        System.out.println(a.getString());
+    }
+}
+
+
+Assosciation:
+
+here the reference is used persistently not just in one method. it is basically a part in it. it is represented by a solid line
+
+Class A{
+    public Car(){return "Hello";}
+}
+
+Class B{
+    private A a;
+    public void setCar(A a){
+        this.a=a; 
+    }
+}
+
+3. Aggregation
+
+here the relationshipnis part of whole so if we do this in constructot that one object creation has the other object then it is stronger than assosiation assosiation is just we add set methosd and those are not dependent that much but here the classes are bbounded
+
+Class A{
+    public A(){
+        return "hello";
+    }
+}
+
+Class B{
+    private A a;
+    public B(A a){
+        this.a=a;
+    }
+}
+
+so even the the instance of b is destroyed as we are creating in the main the instance of A still exist
+
+
+Composition :
+
+here there is stromng relationship the one object will be destroyed if the parent object is destroyed
+
+Class A{
+    public A(){ RETURN "A";}
+}
+
+class B{
+    private A a;
+    public B(){
+        this.a=new A();
+    }
+}
+
+this is represented by a solid line with a shaded diamond on the parent side

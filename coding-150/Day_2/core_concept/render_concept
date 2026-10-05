@@ -1,0 +1,50 @@
+Client side rendering :
+so when the user client device hits the sever the server send two files one is the javascrpit file along with the empty html file. the user browser must execute the javascript file,renderss the data and display the final user interface
+
+Server side rendering:
+
+in this the server send the final html file which eeds to be displayed directly in the browser
+the complete execution, data fetch and the rendering happens in the server side
+
+
+differnce between both of these client. side and server side:
+
+initial page  slower user must wait until javascript file gets executed for client while it is faster in server side as the file is already rendered in server application side
+
+subsequent page navigation will be faster in csr as. no full reloads is reuired only the data is changed but it is slower in ssr because for evry page we need to get data from the application
+
+seo friendliness search bots will see a blank page if it fails to render and it is high i ssr as it send scrapable raed htl file
+
+server cost is less in csr as onlt statis file distribituion is happening in it and ssr will have to be high as it calculates for every page
+
+csr common frameworks: react
+
+IP Address : A unique string of numbers identifying a specific device on a network It tells the internet exactly which computer our request needs to travel to
+DNS - Domain Name System we cannot easily memorize numerical IP addresses. DNS acts as the internet's phonebook. When you type google.com, a DNS server instantly translates that text domain into its raw numerical IP address 
+Port  A single computer running on an IP address can run dozens of network applications at the same time. A Port is a specific communication channel it varies from 0 to 65535 that routes traffic to a specific software program
+	
+HTTP - Hypertext Transfer Protocol (The Language): Once our browser connects to the correct computer (IP) and application (Port), they must speak the same language. HTTP is the structured text protocol they use to chat.
+
+
+Request and Response
+our browser constructs an HTTP request packet containing:
+A Method  GET (fetch data), POST (submit data), PUT (update data), or DELETE (remove data).
+Headers: Metadata containing configuration rules 
+payload data 
+Response 
+After processing the request, the server returns an HTTP response packet containing:
+Status Code
+Headers: Metadata about the file coming back 
+Body: The actual file contents (the HTML text, image data, or API payload).
+
+
+Static Site Generation (SSG)
+SSG is the third major web architecture.
+SSG compiles all your pages into flat, raw HTML files exactly once—during the build step (before the app ever goes live).
+The SSG Lifecycle
+when we type npm run build. The framework hits the database, pulls down all information, and renders hundreds of structural flat files onto your storage drive.
+You upload these finished static files directly to a globally distributed network called a CDN (Content Delivery Network).
+User Request: A user visits our site. The CDN doesn't run any database operations or server-side calculations; it instantly hands back the pre-built, cached HTML file.
+
+
+

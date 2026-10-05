@@ -1,0 +1,11 @@
+hash map and hash set:
+
+hash map is the underlying ds used by hash set too
+A hashmap is the one which has the array od holders in which each value store a pointer to the value we the each value through a hashing function we store the value in it 
+and when it comes to the hashset we will the value given into the hash function
+and we store dummy value in the placeholder
+
+so if the key is same then the default behaviour is to replace the older value with the new value for the given key
+
+to avoid this we can use ifabsent kind of methods or we can maintain a list od values and we can append them if we have same hash
+

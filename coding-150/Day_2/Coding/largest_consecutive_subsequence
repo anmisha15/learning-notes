@@ -1,0 +1,58 @@
+
+import java.util.*;
+
+public class AnagramStreak {
+
+    // Generates a canonical string format key by sorting characters
+    private static String getAnagramKey(String word) {
+        char[] chars = word.toCharArray();
+        Arrays.sort(chars);
+        return new String(chars);
+    }
+
+    public static List<String> findLongestConsecutiveAnagrams(String[] words) {
+        if (words == null || words.length == 0) {
+            return new ArrayList<>();
+        }
+
+        int maxStreak = 1;
+        int maxStartIdx = 0;
+
+        int currentStreak = 1;
+        int currentStartIdx = 0;
+
+        for (int i = 1; i < words.length; i++) {
+            String currentKey = getAnagramKey(words[i]);
+            String prevKey = getAnagramKey(words[i - 1]);
+
+            if (currentKey.equals(prevKey)) {
+                currentStreak++;
+            } else {
+                if (currentStreak > maxStreak) {
+                    maxStreak = currentStreak;
+                    maxStartIdx = currentStartIdx;
+                }
+                currentStreak = 1;
+                currentStartIdx = i;
+            }
+        }
+
+        // Final boundary conditional check
+        if (currentStreak > maxStreak) {
+            maxStreak = currentStreak;
+            maxStartIdx = currentStartIdx;
+        }
+
+        // Extract sublist slice window matching the peak performance range
+        List<String> result = new ArrayList<>();
+        for (int i = maxStartIdx; i < maxStartIdx + maxStreak; i++) {
+            result.add(words[i]);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String[] words = {"race", "care", "acer", "apple", "elppa"};
+        System.out.println(findLongestConsecutiveAnagrams(words)); // Output: [race, care, acer]
+    }
+}

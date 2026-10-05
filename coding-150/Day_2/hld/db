@@ -1,0 +1,30 @@
+A Database (DB) is an organized collection of structured data stored electronically in a computer system. 
+A DBMS (Database Management System) is the software wrapper used to manage, store, query, and maintain that data
+
+
+CRUD Operations: The four basic functions of persistent storage: Create (Insert), Read (Select), Update, and Delete.
+ACID Properties: A set of safety rules that guarantee database transactions are processed reliably:
+Atomicity: All operations succeed, or the entire transaction fails (All or Nothing).
+Consistency: Data must follow all schema rules and constraints.
+Isolation: Multiple transactions can run at the same time without interfering with each other.
+ Durability: Once a transaction is saved, it stays saved, even if the system crashes or loses power.
+Scaling: How a database handles increased loads.
+Vertical Scaling (Scale Up): Making the database machine stronger by adding more RAM/CPU.
+Horizontal Scaling (Scale Out): Adding more database machines and splitting the data across them (Sharding).
+
+
+Relational Databases
+Data is organized into strict Tables with defined rows and columns. They use SQL (Structured Query Language) to fetch data and use relationships (Foreign Keys) to link tables together.
+
+Best For Systems requiring strict consistency, financial data, and complex multi-table queries.
+Scaling Limit: Typically optimized for Vertical Scaling.
+*Examples: MySQL, PostgreSQL, Oracle, SQL Server, SQLite.
+
+
+Non-Relational Databases (NoSQL)
+Data is stored without rigid tables or schemas. NoSQL databases bypass strict relational structures to gain ultra-high write speeds and seamless Horizontal Scaling.
+They are split into four main storage styles:
+
+Document Databases: Stores data as JSON-like records. Excellent for flexible schemas.
+Examples: MongoDB, CouchDB
+Key-Value Stores: The absolute fastest type. Maps a unique key directly to a block of data. Great for fast caching.
