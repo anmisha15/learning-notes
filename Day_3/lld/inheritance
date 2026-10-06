@@ -1,0 +1,36 @@
+Inheritance is used to create a new class from the properties of the existing class
+it is described as is-a relationship
+it helps in eliminating code redundancy and also aids runtime polymorphism
+
+the physical we use to show this in coding is extends keyword
+the parent properties are inherited as follows
+
+public properties are inherited and accessed everywhere
+private properties can be used no where they are completely invisible to the child class
+protected can be used within the parent class, its subclasses, and classes in the same package
+
+there are 5 types of inheritance
+single inheritance
+multi level inheritance
+heirachical inheritance
+multiple inheritance 
+hybriid inheritance
+
+single inheritance is simple it directly inherits from the parent class
+
+multi level is the subclass is inherited from a parent which is again inherited from the parent class so it grand parent class
+
+heirarchical the base class has two multiple subclass
+
+multiple here the child class inherites from the two or moe parent class and java do not support this due to diamond lets say a child class is inherited two classes which has same methods as they are from single parent so it does not know which method to get executed but interfaces are supported beacuase we do not have code to be executed in methods of interfaces 
+
+so we can resolve it now is to specify the which method to be called inside the method overridded
+
+and in python it directly considers the one which is written first in the class argument list while writing the child class
+
+but this can be supported from interfaces persepective a class can inherit properties from two or more interfaces
+
+hybrid is combining the above two or more types of inheritance is called hybrid
+
+
+

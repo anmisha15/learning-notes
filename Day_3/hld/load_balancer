@@ -1,0 +1,25 @@
+load balancer is the one which handles the client requests and distribute them over the multiple backend servers
+
+the primary goal of this to not overload a single server from overloading and leadint ot failure, maximize application uptime and ensures high performance
+
+it pings the servers in between and check whether the servers are running healthy or not 
+
+it also helps to decrypt the requests safely and pass the http data to the internal servers and lets the server not to take extra processing and purely concentrate on the application logic
+
+operational algorithms of the load balancer
+
+how the load balancer decides what requests to pass to which server based on these algos
+
+round robin algorithm:
+it passes sequntially 1,2,3 and again 1 and it is good when we have the same soecific hardware configuration for all the servers
+
+weighted round robin:
+so based on the ram, lets say we more weight to the first then as it is given more weight we will route twice mpre requests than the server
+
+least connections :
+
+check wjether which server has the more connections and route to the with least live sessions and this one is efficient when we have tasks which may consume variable length of the task time reuired fro completing tasks
+
+ip hash:
+computes a hash for the mathematical ip address and then the requests will land on the ssame server if the same user is trying to do something
+

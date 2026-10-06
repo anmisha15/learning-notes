@@ -1,0 +1,14 @@
+LinkedList is a linear data structure where elements are not stored in 
+contiguous memory locations.
+ each element is a separate object called a Node. 
+ Each node contains two things: the actual data and a reference pointer to the 
+ next node in the sequence.
+the advantage of linked list is we can add any number of elements dynmaic sizing
+
+the variant in the same linked list is doubly limked list where each node contains a previous nod3e pointer and the value and the reference pointer of the next node
+
+this is called doubly linked list
+
+circular linkdlist is a variation where the last node has next reference pointer as the first pointer
+
+
