@@ -1,0 +1,48 @@
+A stack is data structure which follows LIFO (last in first out) mechanism
+
+so if an element is inserted at the last we will accessing and taking out the element which is at the end consider it as pile of plates where we can only take the bottm most plate once all the upper plates are removed the same is used in this
+
+
+class ArrayStack {
+    private int maxSize;
+    private int[] stackArray;
+    private int top;
+
+    public ArrayStack(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1;
+    }
+
+    public void push(int value) {
+        if (top == maxSize - 1) {
+            System.out.println("Stack Overflow!");
+            return;
+        }
+        stackArray[++top] = value;
+    }
+
+    public int pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow!");
+            return -1;
+        }
+        return stackArray[top--];
+    }
+
+    public int peek() {
+        return (top == -1) ? -1 : stackArray[top];
+    }
+}
+
+basic operation are pop means returning the top most element in just o(1)
+peek is just getting but not removing the most element which is also the o(1)
+push element is also o(1)
+
+so we usually use this in rela life in scenarios like
+browser history we store the actions of the user in a stack so it will user to fetch latest most action
+
+and editor like vs also stores the recent most changes in the form of stack so when we click on this ctrl z we get the latest most change we have done to revert
+nested works also woirk in the same way
+
+

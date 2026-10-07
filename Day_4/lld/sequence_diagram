@@ -1,0 +1,9 @@
+A Sequence Diagram is an Interaction Diagram that shows how objects or components in a system interact with each other over time, arranged in a sequential order. It maps out the exact lifecycle and flow of messages sent between different parts of a system to fulfill a specific use case.
+
+Lifeline (Vertical Dashed Line): Represents an object, service, or actor participating in the interaction. It runs vertically down the page to show its existence over time.
+Activation Bar (Vertical Rectangle): Sits on top of the lifeline. It indicates the exact duration during which that specific service or component is actively performing a task or waiting for an internal process to finish.
+Synchronous Message (Solid Line with Solid Arrowhead): The sender transmits a request and pauses execution, waiting for a response before moving to the next line of code.
+Asynchronous Message (Solid Line with Open Arrowhead): The sender fires off a request (like putting a message onto a Kafka or RabbitMQ queue) and instantly continues its own execution without waiting for an answer.
+Return Message (Dashed Line with Open Arrowhead): Passes data back to the original caller after a synchronous operation finishes.
+
+

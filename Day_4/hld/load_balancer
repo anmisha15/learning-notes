@@ -1,0 +1,44 @@
+Basiically the load balancer algorithms are divided into two types that is the static and dynamic
+
+statis means which algo are independent of the server status but the dynamic will get the status of the server and take decisions and routing accordingly
+static:
+round robin algorithm:
+it passes sequntially 1,2,3 and again 1 and it is good when we have the same soecific hardware configuration for all the servers
+
+weighted round robin:
+so based on the ram, lets say we more weight to the first then as it is given more weight we will route twice mpre requests than the server
+
+here mostly routing is based on the hardware we make this but not based on the client requests which may sometimes fail because lets say a job which has the o(n^2) 
+is assigned to one job and it is amking time and the same kind of job is again might get stack up onto the same server which may cauuse of failure
+Dynamic:
+
+
+least connections and weighted least connections:
+
+check wjether which server has the more connections it maintains a service registry and counter the variable for each server and 
+based on it it has idea of which server has howmany active reuests assigned and route to the with least live sessions and this one is efficient when we have tasks which may consume variable length of the task time reuired fro completing tasks
+
+Requires continuous memory bookkeeping overhead on the balancer. 
+Furthermore, if a server experiences a quiet death and instantly 
+rejects incoming traffic with a rapid 404 Error or TCP Reset, 
+its connection count will drop to zero. The load balancer will view 
+this broken server as highly available and stampede it with all new 
+inbound traffic. it is known as The Black Hole Effect
+
+ip hash:
+
+this is also a static algo
+computes a hash for the mathematical ip address and then the requests will land on the ssame server if the same user is trying to do something
+
+least response time:
+The load balancer continuously tracks milliseconds of latency using active 
+ping cycles or live metrics. It actively shifts incoming requests to the 
+fastest responding node.
+
+but the catch here is it will overwhelm the fastest responding node. this is referred as the
+sawtooth traffic patterns (Thundering Herd)
+
+A load balancer is only as good as its health verification loops.
+If your health check simply verifies a shallow TCP Ping on Port 80, the server will report HEALTHY even if its underlying database connection pool has completely crashed, causing it to return internal server error.
+
+

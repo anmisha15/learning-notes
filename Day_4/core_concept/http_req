@@ -1,0 +1,60 @@
+http method is the action to be taken by the server and then status code are the response codes of the server to the client browser
+
+
+Core HTTP Methods
+
+HTTP methods specify the intent of a request. When building APIs, following RESTful conventions requires mapping these methods strictly to CRUD (Create, Read, Update, Delete) operations
+
+GET	. the operation mostly include to read data .
+Retrieves data from a server. It must never modify data
+
+POST . the operation mostly include to create data .
+Submits data to be processed, creating a new resource.
+
+PUT	the operation mostly include to update or replace data.
+Replaces the entire target resource with the uploaded payload
+
+PATCH	the operation mostly include to update data.
+ Applies partial modifications to a resource.
+
+DELETE	the operation mostly include to delete data.	
+Destroys the specified resource.
+
+
+
+HTTP Status Codes
+
+Status codes are 3-digit integers issued by a server in response to a client's request. 
+They are divided into 5 clear numeric blocks.
+
+1xx: Informational (Request received, continuing process)
+
+101 Switching Protocols: The server agrees to switch protocols
+
+2xx: Success
+
+200 OK: The standard success code for GET, PUT, or PATCH requests.
+201 Created: The standard success response for a POST request. Confirms a resource was successfully made.
+204 No Content: The request succeeded, but there is nothing to send back in the response body. Heavily used for DELETE actions.
+
+3xx: Redirection
+
+301 Moved Permanently: The URL of the requested resource has been changed permanently. The new URL is given in the response.
+302 Found / 307 Temporary Redirect: The resource resides temporarily under a different URL.
+304 Not Modified: A crucial caching code. Tells the client's browser: The page hasn't changed since you last looked, just read it out of your local cache to save bandwidth
+
+4xx: Client Error
+
+400 Bad Request: The server cannot process the request due to a client-side error
+401 Unauthorized: The user lacks valid authentication credentials (e.g., missing or expired JWT tokens)
+403 Forbidden: The server understands who you are, but you do not have permission to access the resource. Think: "I know who you are, but you aren't an Admin."
+404 Not Found: The server cannot find the requested resource path.
+409 Conflict: The request conflicts with the current state of the server (e.g., trying to register a username that is already taken).
+429 Too Many Requests: The user has sent too many requests in a given amount of time. This code is triggered by Rate Limiters.
+
+5xx: Server Error (The server failed to fulfill a valid request)
+
+500 Internal Server Error: A generic error message given when an unexpected condition was encountered (e.g., your code threw an unhandled NullPointerException).
+502 Bad Gateway: The server, acting as a gateway or Load Balancer, received an invalid response from the upstream backend server.
+503 Service Unavailable: The server cannot handle the request because it is down for maintenance or overloaded.
+504 Gateway Timeout: The load balancer or reverse proxy timed out waiting for the actual backend server pool to respond.
