@@ -1,0 +1,18 @@
+An Activity Diagram is a behavioral diagram within UML (Unified Modeling Language) that models the procedural flow of control
+While a Sequence Diagram focuses on how components talk to each other over time, an Activity Diagram focuses on the operational steps, choices, and parallel execution paths of a particular use case.
+
+Core Components :
+Initial State (Filled Circle): 
+Marks the absolute starting point of the workflow.
+Action / Activity (Rounded Rectangle): 
+Represents a single, discrete step or execution block in the process. simple bsic activity like password authentication
+Control Flow (Solid Arrow): 
+Shows the sequential path from one action to the next.
+Decision Node (Diamond): 
+A branching point with guard conditions written in brackets [like this]. Only one path can be taken at a point of time
+Merge Node (Diamond): Brings multiple alternative decision paths back into a single sequence. once the decisions evaluated and then if redirected to same flow
+Fork (Thick Horizontal or Vertical Black Bar): 
+Splits a single execution flow into two or more parallel paths that run concurrently. kind of go routines
+Join (Thick Horizontal or Vertical Black Bar): 
+Synchronizes multiple parallel paths back together. The flow cannot move past the Join bar until all incoming parallel activities finish.
+Final State (Bullseye / Filled Circle inside an outline): Marks the termination of the entire workflow.

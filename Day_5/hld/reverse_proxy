@@ -1,0 +1,50 @@
+A Reverse Proxy is a server that sits in front of one or more web servers, intercepting client requests before they hit your backend infrastructure.
+To the client, the reverse proxy appears as the actual web server itself. When a user makes a request, the proxy forwards it to the appropriate backend server, retrieves the response, and passes it back to the client.
+
+
+the difference comes down to who the proxy is protecting and representing:
+Forward Proxy (Standard Proxy)	and Reverse Proxy
+fp protects	The Client (Hides your internal computer from the public internet).	while the rp protects The Server (Hides your internal backend database/microservices from the public internet).
+fp Sits in front of the User (e.g., a corporate office network filter or a VPN tool).
+rp Sits in front of the Application Backend (e.g., Nginx, HAProxy, or Envoy).
+the goals of fp areAnonymity, content filtering, and bypassing geo-blocks.	the goals for rp are Security, traffic management, and central routing optimization.
+
+
+
+Core Architectural Use Cases
+
+Security & Anonymity
+
+By intercepting public requests, the reverse proxy prevents malicious actors from knowing the exact IP addresses, port layouts, or structural topologies of your backend application nodes. This creates a powerful layer of insulation against directed DDoS (Distributed Denial of Service) attacks.
+
+SSL/TLS Termination (Offloading)
+
+Encrypting and decrypting secure HTTPS traffic is a computationally expensive task for CPU cores.
+Instead of forcing every single microservice node to decrypt incoming traffic, the reverse proxy acts as the SSL Termination Point.
+It decrypts the HTTPS envelope publicly, verifies certificates, and forwards the request down to the backend nodes via blazing-fast, plain unencrypted HTTP within a secure private network subnet.
+
+Layer 7 Routing & Canonical Paths
+
+A reverse proxy acts as a traffic dispatcher. It evaluates incoming URL string patterns to execute Content-Based Routing:
+https://example.com is transparently routed to an internal Node.js User Service running on port 8081.
+https://example.com is routed to a Python analytics cluster running on port 9090.
+
+Caching Static Assets
+
+To maximize backend performance, the reverse proxy handles static assets (like images, CSS sheets, and compiled JavaScript layers). If a resource is requested frequently, the proxy caches it locally in its high-speed file buffer and serves it immediately without ever invoking a backend worker loop.
+
+points to check
+
+The Single Point of Failure (SPOF)
+
+By forcing all inbound public traffic to hit a single reverse proxy instance, you have created a massive bottleneck. If that single proxy container crashes, your entire system goes dark.
+Solution: in production, we deploy an active-passive cluster of multiple reverse proxy nodes backed by a Layer 4 hardware load balancer or high-availability virtual IP managers (like Keepalived or VRRP frameworks).
+
+Preserving Client Lineage (X-Forwarded-For)
+
+Because the reverse proxy opens connections to the backend servers using its own local IP address, your backend application servers will lose track of who the original user was. Every log file will incorrectly claim that 127.0.0.1 (the proxy) is generating the traffic.
+Solution: Ensure your proxy is configured to inject custom headers into the upstream request payload, specifically:
+	• X-Forwarded-For: Holds the original client's public IP address.
+	• X-Forwarded-Proto: Confirms whether the original user connected via http or https.
+
+

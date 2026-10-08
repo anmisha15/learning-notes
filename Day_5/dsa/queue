@@ -1,0 +1,111 @@
+queue follows the First-In, First-Out (FIFO) principle
+
+linear queue has a problem of wasted space when elements are dequeued, 
+as the front of the queue moves forward and leaves empty spaces behind. 
+To overcome this issue, a circular queue can be implemented, 
+which allows for efficient use of space by wrapping around to the 
+beginning of the queue when the end is reached.
+
+class LinearQueue {
+    private int capacity;
+    private int[] queueArr;
+    private int front;
+    private int rear;
+
+    public LinearQueue(int size) {
+        this.capacity = size;
+        this.queueArr = new int[capacity];
+        this.front = -1;
+        this.rear = -1;
+    }
+
+    public boolean isEmpty() {
+        return front == -1;
+    }
+
+    public boolean isFull() {
+        return rear == capacity - 1;
+    }
+
+    public void enqueue(int value) {
+        if (isFull()) {
+            System.out.println("Queue Overflow! Cannot enqueue " + value);
+            return;
+        }
+        if (front == -1) front = 0;
+        queueArr[++rear] = value;
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue Underflow! Nothing to dequeue.");
+            return -1;
+        }
+        
+        int dequeuedValue = queueArr[front];
+        
+        if (front >= rear) { 
+            front = -1;
+            rear = -1;
+        } else {
+            front++;
+        }
+        
+        return dequeuedValue;
+    }
+}
+
+Circular queue implementation is more efficient in terms of space utilization compared to a linear queue. 
+In a circular queue, when the rear reaches the end of the array, 
+it wraps around to the beginning if there is a space available. 
+This allows for continuous use of the array without wasting space.
+
+class CircularQueue {
+    private int capacity;
+    private int[] queueArr;
+    private int front;
+    private int size;
+        this.capacity = cap;
+        this.queueArr = new int[capacity];
+        this.front = 0;
+        this.size = 0;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public boolean isFull() {
+        return size == capacity;
+    }
+
+    public void enqueue(int value) {
+        if (isFull()) {
+            System.out.println("Circular Queue Overflow! Cannot enqueue " + value);
+            return;
+        }
+        int rear = (front + size) % capacity;
+        queueArr[rear] = value;
+        size++;
+    }
+
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Circular Queue Underflow! Nothing to dequeue.");
+            return -1;
+        }
+
+        int dequeuedValue = queueArr[front];
+        
+        front = (front + 1) % capacity; 
+        size--; 
+        
+        return dequeuedValue;
+    }
+    
+    public int peek() {
+        if (isEmpty()) return -1;
+        return queueArr[front];
+    }
+}
+

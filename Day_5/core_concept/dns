@@ -1,0 +1,32 @@
+The Domain Name System (DNS) is the internet's phonebook, translating human-readable names (like example.com) into machine-readable IP addresses (like 192.0.2.1). Because walking through the entire lookup hierarchy for every single click would slow the internet to a crawl, DNS Caching acts as a distributed memory engine, saving previous lookups closer to the user to make connections near-instantaneous
+
+
+The 4 Structural Pillars of a DNS Lookup
+
+When your browser makes a fresh query with absolutely no cache available, it executes a recursive journey through four specific server entities:
+DNS Recursive Resolver: The frontline server—typically managed by your Internet Service Provider (ISP) or third-party engines like Cloudflare DNS (1.1.1.1) or Google Public DNS (8.8.8.8). It acts as a digital clerk, hunting down records on behalf of your client machine.
+Root Nameserver: The first stop for the resolver. It reads the top-level suffix of your domain and points the resolver to the appropriate registry like .com library
+TLD (Top-Level Domain) Nameserver: Manages the registry for specific domain extensions (.com, .org, .net). It points the resolver to the definitive hosting server for that specific brand or site.
+Authoritative Nameserver: The final destination. This server holds the true master record mapped by the network administrator. It reads the requested record and hands the final target IP address back to the resolver.
+
+
+To bypass this slow multi-hop traversal, records are aggressively saved across a structured caching pipeline. If a record is found at any step, the lookup instantly halts and returns the answer
+
+Browser DNS Cache: Web browsers (like Chrome or Firefox) maintain an ultra-fast internal memory tier specifically for domains you click repeatedly throughout your browsing session.
+Operating System Cache (Stub Resolver): If the browser doesn't have the mapping, it issues a system call to the OS. The OS checks its own internal lookup tables before burning outbound network packets.
+Local Router Cache: If the OS cache falls short, the request hits your local network gateway/router, which retains a common cache pool for all active devices in your home or corporate office building.
+Recursive Resolver Cache: The final caching fortress. Resolvers cache records across millions of global users. If your neighbor visited a site 5 minutes ago, your resolver will serve that cached answer directly to you, completely sparing the global root and TLD frameworks from unnecessary traffic
+
+Every DNS record contains an explicit property called the Time To Live (TTL), measured strictly in seconds. The TTL tells intermediate caches exactly how long they are legally allowed to hold onto an answer before discarding it.
+
+points:
+
+Anycast DNS for Global Speed & High Availability
+In advanced scale designs, you shouldn't use traditional single-location Unicast routing. You use Anycast DNS, where multiple authoritative servers around the globe all advertise the exact same IP address using Border Gateway Protocol (BGP). The internet’s core routers automatically send the user’s request to the topologically nearest server node, slashing latency and absorbing massive DDoS attacks naturally.
+
+DNS Cache Poisoning / Spoofing
+This occurs when an attacker exploits vulnerabilities in UDP communication to inject a fraudulent IP record into a recursive resolver's cache entry. The resolver then blindly redirects legitimate users to a phishing website until the TTL expires.
+solution: The Industry Defense: the architecture enforces DNSSEC (Domain Name System Security Extensions), which adds cryptographic digital signatures to records to prove authenticity before caching them.
+
+Flushing Cache
+during a production issue, in Windows, this is achieved using ipconfig /flushdns in the command prompt, while macOS utilizes sudo killall -HUP mDNSResponder loops.
