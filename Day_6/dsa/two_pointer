@@ -1,0 +1,17 @@
+two pointer approach is a common technique is using two pointers to 
+traverse the data structure, either from difference ends of the array or the same end with different speeds
+this can help to reduce the time complexity.
+
+Mostly we can classify these problems into three variations
+
+fixed window so the two pointers are used to maintain a window of a certain size
+we slide the window across the array to find the desired result. 
+This is often used in problems involving subarrays or substrings of whose length is k 
+and we want to find the maximum, minimum, or sum of elements in that window.
+
+
+pointers at opposite ends of the array, this is often used in problems 
+where we need to find pairs of elements that satisfy a certain condition.
+
+slow and fast pointer, this is often used in problems where we need to 
+find a cycle in a linked list or an array.

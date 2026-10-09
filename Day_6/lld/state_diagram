@@ -1,0 +1,33 @@
+An state machine Diagram is also a behavioral diagram within UML (Unified Modeling Language) that tells about the states of an object through out the lifetime
+
+so this diagram particularly gives idea of a soecific object like an atm card 
+
+a state is nothing but the situation in which the object is in it could be idle or it could be created or it could be waiting state too
+
+so the diagram is telling the states and the actions that triggered these states of that particular object
+
+Core components:
+
+same as activity diagram
+
+start is defined by a solid circle
+end is defined by a Filled Circle inside an outline
+
+and the state is represented bya rounded rectangle
+
+transition one state to the other is represented by an arrow pointing towards the new state
+
+we also decision diamond box here too
+
+and the arrow can have lables too such as the event name that trigeered the state change also called as trigger
+the condition that happened in the internal system which trigerred the state change and this is called guard
+and also it could be the action that took by some else and also called as effect
+
+
+points:
+
+self transition so there could be a retry and the state remains same then it is rrepresented by ana araaow which is again poniting towards the same object
+
+composite state:
+
+A state again can have multiple states inside it

@@ -1,0 +1,73 @@
+TCP transfer network protocol
+UDP User datagram protocal
+
+both are the communication protocols. we use them when the info or data is sent between one machine to the other over a network
+
+TCP is a trnasport layer protocol where we can exchange data reliably
+
+tcp provides mechanism to check whether the data packet is transferred correctly or not and in correct order and retransmits if some data is missing over and also detects duplicate data
+
+so tcp is used when the data is crucial and data should not missed in any case kind of situations
+ file transfer,email and web connections
+
+order:
+
+Establishing a connection before normal data transfer.
+
+Tracking the bytes that have been sent and received.
+
+Acknowledging received data.
+
+Retransmitting data when loss is detected.
+
+Delivering the received byte stream to the application in order.
+
+Controlling the rate of transmission to help avoid overwhelming the receiver or network.
+
+TCP forms the connection in this order:
+it initiates a connection using three handshake
+three messages are
+SYN here the client send a sequence number
+SYN-ACK the server acknowledges the same sequence number and send it own sequence number
+ACK then the client acknowledges this
+
+TCP adds a header to the application data before passing it to the network layer. This unit is called a TCP segment.
+
+The basic TCP header is at least 20 bytes long, and it can be larger when options are included.
+
+Source port: Identifies the sending application's endpoint.
+
+Destination port: Identifies the receiving application's endpoint.
+
+Sequence number: Identifies the position of data bytes in the stream.
+
+Acknowledgment number: Indicates the next byte expected from the other side when the ACK flag is set.
+
+Flags: Indicate control information such as SYN, ACK, FIN, and RST.
+
+Window size: Advertises how much additional data the receiver is prepared to accept.
+
+Checksum: Helps detect corruption in the TCP header and data.
+
+Options: Carry extra information, such as maximum segment size and window scaling.
+
+UDP
+
+UDP is a communication protocol used to send data from one device to another over a network.
+
+Imagine you're making a live video call. Your phone continuously sends small pieces of audio and video data to the other person's phone.
+
+UDP allows these pieces of data to be sent without first establishing a connection or waiting for an acknowledgment for each packet.the TCP handshake establishes a connection, while the FIN/ACK exchange normally closes it gracefully. TCP can also terminate a connection abruptly using a reset (RST).
+
+UDP operates at the transport layer (Layer 4) of the OSI model.
+
+A UDP datagram has a very small header of just 8 bytes, followed by the application data.
+
+Source port: Identifies the sending application or endpoint.
+
+Destination port: Identifies the receiving application or service.
+
+Length: Specifies the total length of the UDP header and data.
+
+Checksum: Helps detect corruption of the datagram. It does not guarantee delivery.
+

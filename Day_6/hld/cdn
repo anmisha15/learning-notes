@@ -1,0 +1,8 @@
+CDN content delivery network is where the the servers are distributed globally to make the user get the website content faster
+
+benefits:
+reduces overload on the main server
+and if the user is closer to other network we do not need to get all the cahed info and images and files from the original server which may take a alot of time 
+so the server nearest to him can fetch this data and reduces the waiting time.
+multiples servers can help t handle traffic spikes and ensures high availability of the system to the end user
+security so many cdn servers provides secirty measures to prevent ddos attacks
