@@ -1,0 +1,56 @@
+Caching is a technique of storing frequently accessed data in a faster storage location so that future requests can be served faster.
+
+Caching is useful for several reasons:
+
+Performance: Reduces response time.
+Less database load: Avoids repeated database queries.
+Reduced network traffic: Reuses previously fetched data.
+Cost savings: Reduces expensive computation and external API calls.
+Scalability: Helps a system handle more requests.
+
+types of caching:
+
+CPU cache:
+A small, fast memory close to the CPU that stores frequently used instructions and data.
+
+Browser cache
+Stores website resources such as images, CSS and JavaScript locally.
+
+Application cache
+Stores frequently requested application data in memory or a dedicated caching system.
+
+CDN cache
+Stores copies of content on servers closer to users.
+
+coomon caching strategies:
+Cache-aside:
+Application checks the cache and loads from the database on a miss.
+
+Write-through:
+Data is written to the cache and underlying storage as part of the write operation.
+
+Write-behind:
+Data is written to the cache first and persisted to storage later.
+
+Read-through:
+Cache infrastructure loads data from the source on a miss.
+
+
+Important caching concepts
+Cache hit: 
+Requested data is found in the cache.
+
+Cache miss: 
+Requested data is not found in the cache.
+
+TTL (Time To Live): 
+How long a cached entry remains valid.
+
+Eviction: 
+Removing entries when space is needed, such as with LRU (Least Recently Used).
+
+Cache invalidation: 
+Removing or updating cached data when the underlying data changes.
+
+Stale data: 
+Cached data that no longer reflects the current source of truth.

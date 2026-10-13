@@ -1,0 +1,13 @@
+An usecase Diagram is a diagram which shows interacion between users and the functionalities
+
+it helps to capture the user functionalities and scope
+
+Core components:
+user represented with a person diagram
+
+functionality or usecase is defined by a empty oval shape
+and the relationship between the user and the functionality is linked with an arrow
+
+and the system is represented by a box in which inside we maintain the users linked with functionalities
+
+dashed arrow represents include and exclude and include is mandatory that usecase is mandatory with the another usecase and exclude is the same but it is optional that usecase is optional while doing th other usecase

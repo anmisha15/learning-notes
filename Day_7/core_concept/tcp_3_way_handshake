@@ -1,0 +1,25 @@
+TCP transfer network protocol
+
+tcp 3 way handshake is a connection established between the client and the server before they exchange the data
+
+when your browser connects to a website using HTTPS, TCP establishes a connection before TLS and HTTP data are exchanged (in the usual TCP-based HTTPS setup).
+
+the three steps invlude
+SYN
+SYN-ACK
+ACK
+
+lets say the client send its initial sequence number SYN=100
+then the server acknowledges the sequence number and send it's own sequence number
+in the step of SYN-ACK
+SYN=500,ACK=101
+
+the client acknowledges the sequqnce number of the server 
+ACK=501
+
+Reasons:
+
+it is used to established a connection between the client and server
+this is used to detect missing data and reorder the messages and avoid delivering duplicate data
+to ensure the communication is is there in both the sides
+to prevent problems caused by delayed communication
