@@ -1,0 +1,32 @@
+A Component Diagram is a type of UML (Unified Modeling Language) diagram that shows the different components of a software system and how they interact with each other.
+
+It helps us understand the structure of a software system, including its modules, dependencies, and connections.
+
+elements:
+Component: an independent art of a software system something like database or user interface
+interface: defines the services a component provides or requires
+dependency: shows that one component depends on the other component
+connector: represents communication between components
+
+uses:
+
+help to visualizee the complete sofware components and threir interaction
+to get idea on complete architecture of the software system
+ti develop and maintain the software effeciently
+to help identify the dependencies between the components
+
+
+components used to represent in the component diagram:
+
+component:
+a rectangle with two tabs on the left side represents a component or a module 
+interface:
+it is a rectangle with two compartments in which the first component is labelled with interface tag and the other component has the operations or services that interface offers with out any any implementation or futhur details
+provided interface :
+an interface is represented with a circle connected to the component
+required interface:
+a semicircle which represents a service that is needed by one component from the the other component
+dependency : 
+it is represented with dashed arrow symbol 
+connection or communication: 
+two components connection represented with a solid line

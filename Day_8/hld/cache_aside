@@ -1,0 +1,7 @@
+The Cache-Aside Pattern is a caching strategy used in software systems to improve performance and reduce the number of requests made to a database.
+
+It is also called Lazy Loading because data is loaded into the cache only when an application requests it and the data is not already cached.
+
+this is mostly used in our services
+
+so when the application needs it will ask the redis directly and then the cache hit happens and if it is available it will get it otherwise it will get from the database and stores it in the database for future and then returns it to the service it got requested for

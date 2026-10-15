@@ -1,0 +1,24 @@
+HTTP and TLS are the technologies used to communicate securely the information between the client and the server
+
+http hypertext transfer protocol defines how the browser and client send requests and responses
+tls(transport layer security):
+this encrypts the communication between them by encrypting the data
+
+http is not secured and the attackers may tamper or stole the data
+where in https TLS is used to encrypt the data
+
+http uses the port 80
+and https uses port 443
+
+When we send a request using HTTPS, TLS generally works as:
+
+Client Hello: The browser proposes TLS versions and cryptographic options.
+
+Server authentication: The server presents its digital certificate.
+
+Key establishment: The browser and server establish shared session keys.
+
+Secure communication: HTTP requests and responses are encrypted using those keys.
+
+the intial negotiation is known as tls handshake
+
